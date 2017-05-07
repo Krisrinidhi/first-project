@@ -27,13 +27,13 @@ if(isset($_POST['login_btn']))
     }
 		else
 		{
-		   $_SESSION['message']="Password is wrong";
+		   $_SESSION['message']="Password is wrong. Try with the same email.";
 		}
     }
 
    else
    {
-            $_SESSION['message']="Emailis incorrect";
+            $_SESSION['message']="Email doesn't exist";
    }    
 }
 ?>
