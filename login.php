@@ -1,5 +1,7 @@
 <?php
-include( ./model/database.php);
+session_start();
+//connect to database
+$db = mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
 if(isset($_POST['login_btn']))
 {
     $email=mysqli_real_escape_string($db,$_POST['email']);
