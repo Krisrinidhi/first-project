@@ -10,9 +10,9 @@
 <div class="header">
     <h1>HOME PAGE</h1>
 </div>
-<h1>HOME</h1>
+<h1>WELCOME TO YOUR PAGE</h1>
 <div>
-    <h4>WELCOME<?php echo $_SESSION['firstname']; 
+    <h4>TABLES<?php echo $_SESSION['firstname']; 
 ?></h4></div>
 </div>
 <?php
@@ -20,7 +20,7 @@ session_start();
 //connect to database
 $db = mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
 $email=mysqli_real_escape_string($db,$_POST['email']);
-$Incomplete_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Status= 'incomplete' AND Email=$email ";
+$Incomplete_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Status= 'incomplete'  ";
 // AND Email='krisrinidhi@gmail.com' ";
 //Email= '$Email' and
 $result_count_1 = mysqli_query($db,$Incomplete_query);
@@ -54,13 +54,12 @@ $result_count_1 = mysqli_query($db,$Incomplete_query);
 }
 ?>
 <p><a href="insert.php">Insert new incomplete record</a></p>
-	
 <?php
 session_start(); 
 //connect to database
 $db = mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
 $email=mysqli_real_escape_string($db,$_POST['email']);
-include(include_email.php);
+
 
 
 
@@ -71,7 +70,7 @@ include(include_email.php);
     }
 
 
-$complete_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Status= 'Complete' AND Email=$email " ;
+$complete_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Status= 'Complete'  " ;
 
 //Email= '$Email' and AND Email='krisrinidhi@gmail.com' "
 $result_count = mysqli_query($db,$complete_query);
@@ -102,7 +101,7 @@ $result_count = mysqli_query($db,$complete_query);
  
 
  ?>
-  <p><a href="insert_complete.php">Insert new complete record</a></p>
+<p><a href="insert_complete.php">Insert new complete record</a></p>
 <a href="logout.php">Log Out</a>
 </body>
 </html>
