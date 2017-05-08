@@ -1,7 +1,5 @@
 <?php
-session_start();
-//connect to database
-$db=mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
+include( ./'model'/'database.php');
 
 if(isset($_POST['register_btn']))
 {
@@ -27,7 +25,7 @@ if(isset($_POST['register_btn']))
 				mysqli_query($db,$sql);  
 				$_SESSION['message']="You are now logged in"; 
 				$_SESSION['firstname']=$firstname;
-				header("location:home.php");  //redirect home page
+				header("location: ./'controller'/'home.php'");  //redirect home page
 			}
 			else
 			{
@@ -47,7 +45,7 @@ if(isset($_POST['register_btn']))
 <html>
 <head>
   <title>Register , login and logout user php mysql</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href=" ./view/style.css"/>
 </head>
 <body>
 <div class="header">
