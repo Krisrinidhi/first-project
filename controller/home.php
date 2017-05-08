@@ -19,7 +19,9 @@
 <p><h3><center>INCOMPLETE RECORDS</center></h3></p>
 <center><?php
 
-include( ./model/database.php);
+session_start();
+//connect to database
+$db = mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
 $Incomplete_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Status= 'incomplete'  ";
 // AND Email='krisrinidhi@gmail.com' ";
 //Email= '$Email' and
