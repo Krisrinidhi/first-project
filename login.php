@@ -1,7 +1,5 @@
 <?php
-session_start();
-//connect to database
-$db=mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");
+include( ./model/database.php);
 if(isset($_POST['login_btn']))
 {
     $email=mysqli_real_escape_string($db,$_POST['email']);
@@ -23,29 +21,29 @@ if(isset($_POST['login_btn']))
     {
         $_SESSION['message']="You are now Loggged In";
         $_SESSION['email']=$email;
-        header("location:home.php");
+        header("location: ./controller/home.php");
     }
 		else
 		{
-		   $_SESSION['message']="Password is wrong. Try with the same email.";
+		   $_SESSION['message']="Password is wrong. Try again using the same email address.";
 		}
     }
 
    else
    {
-            $_SESSION['message']="Email doesn't exist";
+            $_SESSION['message']="Email address does not exist.";
    }    
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register , login and logout user php mysql</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <title>LOGIN PAGE</title>
+  <link rel="stylesheet" type="text/css" href=" ./view/style.css"/>
 </head>
 <body>
 <div class="header">
-    <h1>Register, login and logout user php mysql</h1>
+    <h1>LOGIN</h1>
 </div>
 <?php
     if(isset($_SESSION['message']))
@@ -57,19 +55,20 @@ if(isset($_POST['login_btn']))
 <form method="post" action="login.php">
   <table>
      <tr>
-           <td>Email : </td>
+           <td><center>Email : </center></td>
            <td><input type="text" name="email" class="textInput"></td>
      </tr>
       <tr>
-           <td>Password : </td>
+           <td><center>Password : </center></td>
            <td><input type="password" name="password" class="textInput"></td>
      </tr>
       <tr>
            <td></td>
-           <td><input type="submit" name="login_btn" class="Log In"></td>
+           <td><center><input type="submit" name="login_btn" class="Log In"></center></td>
      </tr>
   
 </table>
 </form>
+<p><a href="register.php"><center>Sign Up</center></a></p>
 </body>
 </html>
