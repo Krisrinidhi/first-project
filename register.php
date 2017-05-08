@@ -46,12 +46,12 @@ if(isset($_POST['register_btn']))
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register , login and logout user php mysql</title>
+  <title>REGISTER</title>
   <link rel="stylesheet" type="text/css" href=" ./view/style.css"/>
 </head>
 <body>
 <div class="header">
-    <h1>Register, login and logout user php mysql</h1>
+    <h1>SIGN UP</h1>
 </div>
 <?php
     if(isset($_SESSION['message']))
