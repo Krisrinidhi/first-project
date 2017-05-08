@@ -10,7 +10,9 @@ if ($error != '')
 echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div>';
 }
 
-include( ./model/database.php);	
+session_start();
+//connect to database
+$db = mysqli_connect("sql2.njit.edu","sk2423","IR8VDFjJC","sk2423");;	
 	$edit_id = $_GET['Id'];
 	$edit_query = "SELECT Id, Email, ToDoItem, Description , Status, DueDate , DueTime FROM todo WHERE  Id= $edit_id" ;
     $edit_query_result = mysqli_query($db,$edit_query);
